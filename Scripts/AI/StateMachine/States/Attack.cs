@@ -10,6 +10,8 @@ namespace LB {
         public CharacterManager TargetCharacterManager;
         public CharacterManager SelfCharacterManager;
 
+
+
         
 
 
@@ -17,16 +19,16 @@ namespace LB {
             return AiStateId.Attack;
         }
 
-        public void AfterEnter(NPCManager aiManager){
+        public void AfterEnter(NPCManager aiManager, Comportment behaviour){
             TargetStatsManager = aiManager.CurrentFocus.GetComponentInParent<StatsManager>();
             TargetCharacterManager = aiManager.CurrentFocus.GetComponentInParent<CharacterManager>();
             SelfCharacterManager = aiManager.GetComponentInParent<CharacterManager>();
         }
 
-        public void Tick(NPCManager aiManager){
+        public void Tick(NPCManager aiManager, Comportment behaviour){
 
-
-            if(SelfCharacterManager.MovementManager.isCloseToCurrentTarget){
+            int dist = (int) Vector3.Distance(SelfCharacterManager.transform.position, TargetCharacterManager.transform.position);
+            if(SelfCharacterManager.MovementManager.isCloseToCurrentTarget || SelfCharacterManager.StatsManager.Stats["RANGE"].Value >= dist){
 
 
                 if(SelfCharacterManager.canAttack){
@@ -44,11 +46,11 @@ namespace LB {
                 
                 
             } else {
-                aiManager.stateMachine.ChangeState(new Follow());
+                // aiManager.stateMachine.ChangeState(new Follow());
             }
         }
 
-        public void BeforeExit(NPCManager aiManager){
+        public void BeforeExit(NPCManager aiManager, Comportment behaviour){
             
         }
 

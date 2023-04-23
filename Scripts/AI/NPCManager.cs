@@ -10,6 +10,7 @@ namespace LB {
         public NPCSocialTypes type; 
         public AiStateMachine stateMachine;
         public AiStateId currentState;
+        public AiBehavioursId currentBehaviour;
         public Stances currentStance;
         [HideInInspector] public MovementManager MovementManager;
         [HideInInspector] public StatsManager StatsManager;

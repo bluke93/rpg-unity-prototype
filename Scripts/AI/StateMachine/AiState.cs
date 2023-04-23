@@ -9,9 +9,9 @@ namespace LB {
 
         AiStateId GetId();
 
-        void AfterEnter(NPCManager aiManager); // fires before tick and after change
-        void Tick(NPCManager aiManager);       // fires while staying in state
-        void BeforeExit(NPCManager aiManager); // fires before leaving state
+        void AfterEnter(NPCManager aiManager, Comportment behaviour); // fires before tick and after change
+        void Tick(NPCManager aiManager, Comportment behaviour);       // fires while staying in state
+        void BeforeExit(NPCManager aiManager, Comportment behaviour); // fires before leaving state
         
     }
 }

@@ -13,14 +13,14 @@ namespace LB {
             return AiStateId.Reset;
         }
 
-        public void AfterEnter(NPCManager aiManager){
+        public void AfterEnter(NPCManager aiManager, Comportment behaviour){
             aiManager.CurrentFocus = null;
             aiManager.MovementManager.StopAnyMovement();
             currentWaitTime = 0;
 
         }
 
-        public void Tick(NPCManager aiManager){
+        public void Tick(NPCManager aiManager, Comportment behaviour){
             if(currentWaitTime <= aiManager.ReturnToSpawnPointAfter){
                 currentWaitTime += Time.deltaTime;
             } else {
@@ -30,7 +30,7 @@ namespace LB {
 
         }
 
-        public void BeforeExit(NPCManager aiManager){
+        public void BeforeExit(NPCManager aiManager, Comportment behaviour){
 
         }
 
