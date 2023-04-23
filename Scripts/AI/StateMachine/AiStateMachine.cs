@@ -8,6 +8,7 @@ namespace LB {
         public AiState[] states;
         public NPCManager aiManager;
         public AiState currentState;
+        public Comportment behaviour;
 
         public AiStateMachine(NPCManager aiManager){
             this.aiManager = aiManager;
@@ -16,13 +17,17 @@ namespace LB {
         }
 
         public void Run(){
-            currentState?.Tick(aiManager);
+            if(aiManager.currentBehaviour == AiBehavioursId.Melee){
+                currentState?.Tick(aiManager, new Melee());
+            } else {
+                currentState?.Tick(aiManager, new Ranged());
+            }
         }
 
         public void ChangeState(AiState nextState){
-            currentState?.BeforeExit(aiManager);
+            currentState?.BeforeExit(aiManager, new Melee());
             currentState = nextState;
-            currentState?.AfterEnter(aiManager);
+            currentState?.AfterEnter(aiManager, new Melee());
         }
 
         public void RegisterState(AiState state){

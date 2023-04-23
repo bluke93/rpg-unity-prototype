@@ -23,6 +23,7 @@ namespace LB {
             ["CASTSPEED"] = new Stat("Casting Speed", 0),
             ["CDR"] = new Stat("Cooldown Reduction", 0),
             ["MS"] = new Stat("Movement Speed", 5),
+            ["RANGE"] = new Stat("Range", 100),
         };
 
         public Stat this[string statName]{

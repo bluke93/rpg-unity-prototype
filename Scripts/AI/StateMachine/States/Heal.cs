@@ -12,17 +12,17 @@ namespace LB {
             return AiStateId.Heal;
         }
 
-        public void AfterEnter(NPCManager aiManager){
+        public void AfterEnter(NPCManager aiManager, Comportment behaviour){
             aiManager.MovementManager.StopAnyMovement();
             SelfCharacterManager = aiManager.GetComponentInParent<CharacterManager>();
             
         }
 
-        public void Tick(NPCManager aiManager){
+        public void Tick(NPCManager aiManager, Comportment behaviour){
             
         }
 
-        public void BeforeExit(NPCManager aiManager){
+        public void BeforeExit(NPCManager aiManager, Comportment behaviour){
             
 
         }
