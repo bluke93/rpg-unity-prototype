@@ -20,14 +20,9 @@ namespace LB {
         }
 
         public void Tick(NPCManager aiManager, Comportment behaviour){
-            behaviour.Attack(aiManager);
 
             if(aiManager.type == NPCSocialTypes.Hostile){
-                int dist = (int) Vector3.Distance(SelfCharacterManager.transform.position, TargetCharacterManager.transform.position);
-
-                
-
-                if(aiManager.MovementManager.isCloseToCurrentTarget || SelfCharacterManager.StatsManager.Stats["RANGE"].Value >= dist){
+                if(behaviour.IsInAttackRange(SelfCharacterManager, TargetCharacterManager)){
                     aiManager.stateMachine.ChangeState(new Attack());
                 }
             }

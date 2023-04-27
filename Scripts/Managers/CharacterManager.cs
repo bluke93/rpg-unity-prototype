@@ -29,6 +29,7 @@ namespace LB {
         public float attackSpeed = 0f;
         public float baseAtkSpeed = 0f;
         public bool canAttack = false;
+        public bool canMove = true;
 
         void Awake(){
             StatsManager = GetComponent<StatsManager>();

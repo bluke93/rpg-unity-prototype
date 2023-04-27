@@ -3481,7 +3481,7 @@ GameObject:
   - component: {fileID: 1651686693}
   - component: {fileID: 1651686692}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: Orc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3644,6 +3644,7 @@ MonoBehaviour:
   attackSpeed: 0
   baseAtkSpeed: 0
   canAttack: 0
+  canMove: 1
 --- !u!1 &1692354628
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,6 +4793,7 @@ MonoBehaviour:
   attackSpeed: 0
   baseAtkSpeed: 0
   canAttack: 0
+  canMove: 1
 --- !u!114 &1953659763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5190,7 +5192,7 @@ GameObject:
   - component: {fileID: 2134157435}
   - component: {fileID: 2134157434}
   m_Layer: 0
-  m_Name: NPC (1)
+  m_Name: Fey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5231,12 +5233,13 @@ MonoBehaviour:
   MovementManager: {fileID: 0}
   StatsManager: {fileID: 0}
   Name: Arciere
-  CharacterRace: {fileID: 11400000, guid: bcd11c0893ed1432ea672447ed5c60f1, type: 2}
+  CharacterRace: {fileID: 11400000, guid: 4000b9d02a8194235a4202cec9452b24, type: 2}
   attackTimer: 0
-  maxAttackTimer: 2.5
+  maxAttackTimer: 1
   attackSpeed: 0
   baseAtkSpeed: 0
   canAttack: 0
+  canMove: 1
 --- !u!114 &2134157436
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,9 @@ namespace LB {
     public interface Comportment {
 
         AiBehavioursId GetId();
-        void Attack(NPCManager aiManager);
+
+        // Verifies if is in attack range
+        bool IsInAttackRange(CharacterManager Self, CharacterManager Target);
         
     }
 }
