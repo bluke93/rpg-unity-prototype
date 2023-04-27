@@ -27,10 +27,7 @@ namespace LB {
 
         public void Tick(NPCManager aiManager, Comportment behaviour){
 
-            int dist = (int) Vector3.Distance(SelfCharacterManager.transform.position, TargetCharacterManager.transform.position);
-            if(SelfCharacterManager.MovementManager.isCloseToCurrentTarget || SelfCharacterManager.StatsManager.Stats["RANGE"].Value >= dist){
-
-
+            if(behaviour.IsInAttackRange(SelfCharacterManager, TargetCharacterManager)){
                 if(SelfCharacterManager.canAttack){
                     // TODO: handle better the attack timer reset
                     SelfCharacterManager.canAttack = false;
@@ -40,13 +37,9 @@ namespace LB {
                     var Damage = (int)(SelfCharacterManager.StatsManager.Stats[StatsList.PATK.ToString()].Value  * (100 / (100 +TargetStatsManager.Stats[StatsList.PDEF.ToString()].Value)));
                     TargetStatsManager.Stats[StatsList.HP.ToString()].CurrentValue -= Damage;
                     TargetCharacterManager.TakeDamage(Damage.ToString(), DamageTypes.Physical, false); 
-                } else {
-                    // TO DO: altri behaviour
                 }
-                
-                
             } else {
-                // aiManager.stateMachine.ChangeState(new Follow());
+                aiManager.stateMachine.ChangeState(new Follow());
             }
         }
 

@@ -13,5 +13,6 @@ public enum StatsList {
     MDEF,
     CASTSPEED,
     CDR,
-    MS
+    MS,
+    RANGE
 }

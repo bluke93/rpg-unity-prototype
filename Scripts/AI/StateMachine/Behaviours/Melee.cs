@@ -10,11 +10,13 @@ namespace LB {
             return AiBehavioursId.Melee;
         }
 
-        public void Attack(NPCManager aiManager){
-            Debug.Log( "Follow di tipo melee");
-            Debug.Log(aiManager.CharacterManager.Name);
+        public bool IsInAttackRange(CharacterManager Self, CharacterManager Target){
+            if(Self.MovementManager.isCloseToCurrentTarget){
+                return true;
+            } else {
+                return false;
+            }
         }
-
     }
 }
 

@@ -15,7 +15,7 @@ namespace LB {
         [HideInInspector] public MovementManager MovementManager;
         [HideInInspector] public StatsManager StatsManager;
         [HideInInspector] public CharacterManager CharacterManager;
-        [HideInInspector] private Collider SphereCollider;
+        [HideInInspector] private SphereCollider SphereCollider;
 
 
         [Header("NPC Params")]
@@ -25,11 +25,17 @@ namespace LB {
         public float ReturnToSpawnPointAfter = 5f;
 
 
+        // Implement sightRange
+        // Implement attackRange
+        // Implement keepDistanceRange
+
         private void Awake() {
             MovementManager = GetComponent<MovementManager>();
             StatsManager = GetComponent<StatsManager>();
             CharacterManager = GetComponent<CharacterManager>();
+            SphereCollider = GetComponent<SphereCollider>();
             stateMachine = new AiStateMachine(this);
+          
         }
 
         void Start(){
@@ -40,6 +46,7 @@ namespace LB {
             stateMachine.RegisterState(new Attack());
             stateMachine.RegisterState(new Heal());
             stateMachine.ChangeState(stateMachine.GetState(currentState));
+            SphereCollider.radius = InteractionRadius;
         }
 
         void Update(){
