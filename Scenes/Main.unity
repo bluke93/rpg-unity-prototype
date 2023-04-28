@@ -5289,7 +5289,7 @@ MonoBehaviour:
   StatsManager: {fileID: 0}
   CharacterManager: {fileID: 0}
   CurrentFocus: {fileID: 0}
-  InteractionRadius: 10
+  InteractionRadius: 20
   SpawnPoint: {x: 0, y: 0, z: 0}
   ReturnToSpawnPointAfter: 5
 --- !u!114 &2134157439
